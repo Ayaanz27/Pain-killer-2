@@ -5,6 +5,7 @@ public class Shake : MonoBehaviour
 {
     public AnimationCurve curve;
     public float duration = 4f;
+    public bool shake_test = false;
 
     IEnumerator Shaking(){
         Vector3 startPosition = transform.position;
@@ -27,5 +28,14 @@ public class Shake : MonoBehaviour
     public void TriggerShake()
     {
         StartCoroutine(Shaking());
+    }
+
+    void Update()
+    {
+     if (shake_test == true )
+        {
+            TriggerShake();
+            shake_test = false; 
+        }
     }
 }
